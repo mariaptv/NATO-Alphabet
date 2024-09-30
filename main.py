@@ -5,8 +5,9 @@ student_dict = {
 
 #Looping through dictionaries:
 for (key, value) in student_dict.items():
+    print(key)
+    print(value)
     #Access key and value
-    pass
 
 import pandas
 student_data_frame = pandas.DataFrame(student_dict)
@@ -20,8 +21,15 @@ for (index, row) in student_data_frame.iterrows():
 # Keyword Method with iterrows()
 # {new_key:new_value for (index, row) in df.iterrows()}
 
-#TODO 1. Create a dictionary in this format:
-{"A": "Alfa", "B": "Bravo"}
+words_dict =  pandas.read_csv(r"C:\Users\maria\Documents\proyectos python\NATO-Alphabet\nato_phonetic_alphabet.csv")
+words_data_frame = pandas.DataFrame(words_dict)
 
-#TODO 2. Create a list of the phonetic code words from a word that the user inputs.
+words_new= {row.letter: row.code for (index, row) in words_data_frame.iterrows()}
 
+
+
+word = input("What do you want us to spell?")
+
+result=[words_new.get(w) for w in word]
+
+print(result)
