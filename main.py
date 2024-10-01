@@ -28,7 +28,7 @@ words_new= {row.letter: row.code for (index, row) in words_data_frame.iterrows()
 
 
 
-word = input("What do you want us to spell?")
+word = input("What do you want us to spell?").upper()
 
 result=[words_new.get(w) for w in word]
 
